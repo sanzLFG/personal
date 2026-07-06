@@ -4,7 +4,7 @@ name: WHOOP nightly pull
 on:
   schedule:
     # 09:00 UTC ~= early morning US Eastern. Adjust the hour if you like.
-    - cron: "0 9 * * *"
+    - cron: "0 19 * * *"
   workflow_dispatch: {}   # lets you run it by hand from the Actions tab
 
 jobs:
