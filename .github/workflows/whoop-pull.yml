@@ -1,0 +1,24 @@
+# Place this file at:  .github/workflows/whoop-pull.yml
+name: WHOOP nightly pull
+
+on:
+  schedule:
+    # 09:00 UTC ~= early morning US Eastern. Adjust the hour if you like.
+    - cron: "0 9 * * *"
+  workflow_dispatch: {}   # lets you run it by hand from the Actions tab
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - run: npm run pull
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET: ${{ secrets.SUPABASE_SECRET }}
+          WHOOP_CLIENT_ID: ${{ secrets.WHOOP_CLIENT_ID }}
+          WHOOP_CLIENT_SECRET: ${{ secrets.WHOOP_CLIENT_SECRET }}
