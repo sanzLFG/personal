@@ -1,0 +1,15 @@
+{
+  "name": "personal-tracker-whoop",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "connect": "node connect.js",
+    "pull": "node whoop-pull.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "dotenv": "^16.4.5"
+  }
+}
